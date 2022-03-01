@@ -27,6 +27,5 @@ public class ShadowRoot {
         WebElement clearData = (WebElement) js.executeScript("return document.querySelector('settings-ui').shadowRoot.querySelector('settings-menu').shadowRoot.querySelector('cr-button')");
         clearData.click();
 
-
     }
 }

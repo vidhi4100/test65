@@ -18,9 +18,10 @@ public class ScreenShot {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("http://pms.bacancy.com/");
-        FileUtils.copyFile(((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE),new File(System.getProperty("user.dir")+"\\png.png"));
-
-
+        FileUtils.copyFile(
+                ((TakesScreenshot)driver).
+                        getScreenshotAs(OutputType.FILE),
+                new File(System.getProperty("user.dir")+"\\png.png"));
     }
 
 }

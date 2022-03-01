@@ -16,13 +16,15 @@ public class ShadowRoot {
     public void Test1Method() throws IOException, InterruptedException {
         System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"\\chromedriver.exe");
         driver = new ChromeDriver();
+
         driver.manage().window().maximize();
-        driver.get("chrome://settings/");
+
+        driver.get("chrome://settings/appearance");
 
         /**
          * Advanced menu
          */
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         WebElement clearData =
                 (WebElement) js.
@@ -33,6 +35,5 @@ public class ShadowRoot {
                                           "shadowRoot.querySelector('cr-button')"
                                 );
         clearData.click();
-
     }
 }

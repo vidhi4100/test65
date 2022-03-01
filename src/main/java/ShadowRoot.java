@@ -24,7 +24,14 @@ public class ShadowRoot {
          */
         Thread.sleep(2000);
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        WebElement clearData = (WebElement) js.executeScript("return document.querySelector('settings-ui').shadowRoot.querySelector('settings-menu').shadowRoot.querySelector('cr-button')");
+        WebElement clearData =
+                (WebElement) js.
+                        executeScript
+                                (
+                                  "return document.querySelector('settings-ui')." +
+                                          "shadowRoot.querySelector('settings-menu')." +
+                                          "shadowRoot.querySelector('cr-button')"
+                                );
         clearData.click();
 
     }

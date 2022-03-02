@@ -11,6 +11,7 @@ public class SortCollection {
 
     @Test
     public void sorting() throws IOException, InterruptedException {
+
         ArrayList<String> al=new ArrayList<String>();
         al.add("A");
         al.add("V");

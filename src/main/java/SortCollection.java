@@ -2,8 +2,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class SortCollection {
@@ -12,11 +11,26 @@ public class SortCollection {
 
     @Test
     public void sorting() throws IOException, InterruptedException {
-        List < String > myList = Arrays.asList("Joy", "Alice", "Bob", "Max", "Charles", "Katty");
-        System.out.println("Sorted List is: ");
-        List < String > sortList = myList.stream().sorted().collect(Collectors.toList());
-        sortList.forEach(System.out::println);
+        ArrayList<String> al=new ArrayList<String>();
+        al.add("A");
+        al.add("V");
+        al.add("Z");
+        al.add("P");
 
+        Collections.sort(al);
+        Iterator<String> iterator = al.iterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
 
+        /**
+         * REVERES ORDER
+         */
+        Collections.sort(al,Collections.reverseOrder());
+        Iterator i=al.iterator();
+        while(i.hasNext())
+        {
+            System.out.println(i.next());
+        }
     }
 }

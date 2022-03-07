@@ -15,7 +15,7 @@ public class ActionTest {
     public static WebDriver driver;
 
     @Test
-    public void Test1Method() throws IOException, InterruptedException {
+    public static void Test1Method() throws IOException, InterruptedException {
         System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -40,7 +40,10 @@ public class ActionTest {
         Thread.sleep(2000);
 
 
+
     }
+
+
 
 
 }

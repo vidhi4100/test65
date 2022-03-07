@@ -17,11 +17,12 @@ public class ShadowRoot {
 
         driver.manage().window().maximize();
 
-        driver.get("chrome://settings/appearance");
+
 
         /**
          * Advanced menu
          */
+        /*driver.get("chrome://settings/appearance");
         Thread.sleep(5000);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         WebElement clearData =
@@ -31,6 +32,24 @@ public class ShadowRoot {
                                   "return document.querySelector('settings-ui')." +
                                           "shadowRoot.querySelector('settings-menu')." +
                                           "shadowRoot.querySelector('cr-button')"
+                                );
+        clearData.click();*/
+
+
+        driver.get("file:///C:/Users/Bacancy/Downloads/HCT_Automation_JD.pdf");
+        Thread.sleep(5000);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        WebElement clearData =
+                (WebElement) js.
+                        executeScript
+                                (
+                                   "return document.querySelector('pdf-viewer')." +
+                                           "shadowRoot.querySelector('viewer-toolbar')." +
+                                           "shadowRoot.querySelector('viewer-download-controls')."+
+                                           "shadowRoot.querySelector('cr-icon-button')."+
+                                           "shadowRoot.querySelector('iron-icon')"
+
+
                                 );
         clearData.click();
     }

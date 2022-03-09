@@ -1,0 +1,5 @@
+1 : //input[@id='edit-search-block-form--2']
+2 : //input[@id='edit-name']
+3 : //input[@id='edit-subject']
+4 : //input[@id='mce-EMAIL']
+5 : //input[@id='mc-embedded-subscribe']

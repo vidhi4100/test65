@@ -20,41 +20,48 @@ public class BrokenLink {
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://www.amazon.com/");
-        int respCode = 200;
-        List<WebElement> links = driver.findElements(By.tagName("a"));
 
-        Iterator<WebElement> it = links.iterator();
+        driver.get("https://www.applicoinc.com/");
 
-        while(it.hasNext()){
+        List<WebElement> links=driver.findElements(By.tagName("a"));
 
-            String url = it.next().getAttribute("href");
+        System.out.println("Total links are "+links.size());
 
-            System.out.println(url);
+        for(int i=0;i<links.size();i++)
+        {
 
-            try {
-                HttpURLConnection HttpURLConnection = (HttpURLConnection)(new URL(url).openConnection());
+            WebElement ele= links.get(i);
 
-                HttpURLConnection.setRequestMethod("HEAD");
+            String url=ele.getAttribute("href");
 
-                HttpURLConnection.connect();
+            verifyLinkActive(url);
 
-                respCode = HttpURLConnection.getResponseCode();
-
-                if(respCode >= 400){
-                    System.out.println(url+" is a broken link");
-                }
-
-            }catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
 
-        driver.quit();
+    }
 
+    public static void verifyLinkActive(String linkUrl)
+    {
+        try
+        {
+            URL url = new URL(linkUrl);
+
+            HttpURLConnection httpURLConnect=(HttpURLConnection)url.openConnection();
+
+            httpURLConnect.setConnectTimeout(3000);
+
+            httpURLConnect.connect();
+
+            if(httpURLConnect.getResponseCode()>=400)
+            {
+                System.out.println(linkUrl+" - "+httpURLConnect.getResponseMessage() + " - "+ httpURLConnect.getResponseCode());
+            }
+        } catch (Exception e) {
+
+        }
     }
 }
+
+
 
 
